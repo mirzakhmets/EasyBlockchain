@@ -4,7 +4,10 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+
+#if TRIAL
 using Microsoft.Win32;
+#endif
 
 namespace EasyBlockchain
 {
@@ -334,6 +337,7 @@ namespace EasyBlockchain
 
     }
     
+    #if TRIAL
     public void CheckRuns() {
 		try {
 			RegistryKey key = Registry.CurrentUser.OpenSubKey("Software\\OVG-Developers", true);
@@ -374,12 +378,15 @@ namespace EasyBlockchain
 		
 		return false;
 	}
+    #endif
     
 		void MainFormShown(object sender, EventArgs e)
 		{
+			#if TRIAL
 			if (!IsRegistered()) {
     			CheckRuns();
     		}
+			#endif
 		}
   }
 }
