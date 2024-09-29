@@ -26,7 +26,7 @@ namespace EasyBlockchain
       while (index1 < s.Length)
       {
         int index2 = Blockchain.valueOf(s[index1]) ^ Blockchain.valueOf("abcdef1020304060abcdef1020304060"[index1]);
-        str += (string) (object) "0123456789abcdef"[index2];
+        str += "0123456789abcdef"[index2];
         checked { ++index1; }
       }
       return str;
@@ -38,7 +38,7 @@ namespace EasyBlockchain
       int num = 0;
       while (num < 32)
       {
-        this.Value += (string) (object) "0123456789abcdef"[Blockchain.random.Next(16)];
+        this.Value += "0123456789abcdef"[Blockchain.random.Next(16)];
         checked { ++num; }
       }
     }
@@ -67,7 +67,7 @@ namespace EasyBlockchain
           checked { index2 -= 16; }
           checked { ++num2; }
         }
-        str += (string) (object) "0123456789abcdef"[index2];
+        str += "0123456789abcdef"[index2];
         checked { ++index1; }
       }
       return new Blockchain(str);
